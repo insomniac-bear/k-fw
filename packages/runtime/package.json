@@ -1,0 +1,34 @@
+{
+  "name": "k-fw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/k-wf.js",
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "rollup -c",
+    "prebuild": "tsc",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "vitest",
+    "test:run": "vitest run"
+  },
+  "files": [
+    "dist/k-fw.js"
+  ],
+  "type": "module",
+  "keywords": [
+    "k-fw-runtime",
+    "runtime"
+  ],
+  "author": "k.cherepanov",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.39.0",
+    "jsdom": "^27.1.0",
+    "rollup": "^4.52.5",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-filesize": "^10.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.6"
+  }
+}

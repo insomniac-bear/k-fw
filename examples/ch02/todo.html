@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My TODOs</title>
+  <link rel="stylesheet" href="todo.css">
+  <script type="module" src="todo.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">My TODO</h1>
+  </header>
+  <main>
+    <section class="dialog">
+      <label class="dialog__label" for="todo-input">New TODO</label>
+      <input class="dialog__input" type="text" id="todo-input" />
+      <button class="dialog__submit" id="add-todo-btn" disabled>Add</button>
+    </section>
+    <section class="todos">
+      <ul class="todos__list" id="todo-list"></ul>
+    </section>
+  </main>
+</body>
+</html>

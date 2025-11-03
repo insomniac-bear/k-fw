@@ -1,0 +1,87 @@
+@font-face {
+  font-family: Roboto;
+  src: local('./roboto.woff') format('woff');
+  src: local('./roboto.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --main-color: #1d1d1d;
+  --disabled-color: #c2c2c2;
+  --active-color: #0510af;
+}
+
+* {
+  color: var(--main-color);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline-start: 20px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.dialog {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: 10px;
+  margin-block-start: 20px;
+  margin-inline: auto;
+  padding: 20px;
+  width: fit-content;
+  border: 1px solid var(--main-color);
+  border-radius: 20px;
+}
+
+.dialog__label {
+  grid-column: 1/-1;
+  font-style: italic;
+}
+
+.dialog__input {
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid var(--main-color);
+  border-left: none;
+  transition: border-color linear .5s;
+}
+
+.dialog__input:focus,
+.dialog__input:active,
+.dialog__input:focus-visible {
+  border-top: none;
+  border-right: none;
+  border-color: var(--active-color);
+  border-left: none;
+  outline: none;
+}
+
+.dialog__submit {
+  color: var(--main-color);
+  background-color: inherit;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  transition: color linear .5s, border-color linear .5s;
+  cursor: pointer;
+}
+
+.dialog__submit:active {
+  color: var(--active-color);
+  border-color: var(--active-color);
+}
+
+.dialog__submit:disabled {
+  color: var(--disabled-color);
+  border-color: var(--disabled-color);
+}

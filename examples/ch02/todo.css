@@ -67,7 +67,7 @@
   outline: none;
 }
 
-.dialog__submit {
+.button {
   color: var(--main-color);
   background-color: inherit;
   border: 1px solid var(--main-color);
@@ -76,12 +76,35 @@
   cursor: pointer;
 }
 
-.dialog__submit:active {
+.button:active {
   color: var(--active-color);
   border-color: var(--active-color);
 }
 
-.dialog__submit:disabled {
+.button:disabled {
   color: var(--disabled-color);
   border-color: var(--disabled-color);
+}
+
+.todos {
+  margin-block-start: 20px;
+  margin-inline: auto;
+  width: 300px;
+}
+
+.todos__list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.todos__list li {
+  display: grid;
+  grid-template-columns: 1fr min-content min-content;
+  gap: 5px;
+}
+
+.done {
+  text-decoration: line-through;
 }

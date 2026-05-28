@@ -10,6 +10,7 @@
   --main-color: #1d1d1d;
   --disabled-color: #c2c2c2;
   --active-color: #0510af;
+  --error-color: #ca7e7e;
 }
 
 * {
@@ -30,6 +31,10 @@
 
 .title {
   font-size: 24px;
+}
+
+.error {
+  color: var(--error-color);
 }
 
 .dialog {
@@ -65,6 +70,10 @@
   border-color: var(--active-color);
   border-left: none;
   outline: none;
+}
+
+.dialog__submit {
+  transition: color linear .5s, border-color linear .5s;
 }
 
 .button {

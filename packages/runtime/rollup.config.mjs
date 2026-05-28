@@ -6,7 +6,7 @@ export default {
   plugins: [cleanup()],
   output: [
     {
-      file: 'dist/k-fw.js',
+      file: 'dist/k-fe-fwk.js',
       format: 'esm',
       plugins: [filesize()],
     },

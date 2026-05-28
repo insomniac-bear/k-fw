@@ -1,8 +1,8 @@
 {
-  "name": "k-fw",
+  "name": "k-fe-fwk",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/k-wf.js",
+  "main": "dist/k-fe-wfk.js",
   "scripts": {
     "prepack": "npm run build",
     "build": "rollup -c",
@@ -13,11 +13,11 @@
     "test:run": "vitest run"
   },
   "files": [
-    "dist/k-fw.js"
+    "dist/k-fe-fwk.js"
   ],
   "type": "module",
   "keywords": [
-    "k-fw-runtime",
+    "k-fe-fwk-runtime",
     "runtime"
   ],
   "author": "k.cherepanov",

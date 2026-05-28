@@ -4,9 +4,21 @@ const TODO = [
   { description: "Sand the chairs", isDone: false },
 ];
 
+const speech = new SpeechSynthesisUtterance();
+speech.lang = "en-US";
+speech.volume = 1;
+speech.rate = 1;
+speech.pitch = 1;
+speech.voice = speechSynthesis.getVoices()[0];
+
+const dialog = document.getElementById("dialog");
 const addTodoInput = document.getElementById("todo-input");
 const addTodoButton = document.getElementById("add-todo-btn");
 const todoList = document.getElementById("todo-list");
+
+const span = document.createElement("span");
+span.textContent = "Todo already exists";
+span.classList.add("error");
 
 for (const todo of TODO) {
   todoList.append(renderTodoInReadMode(todo));
@@ -67,7 +79,7 @@ function renderTodoInEditMode(todo) {
   const li = document.createElement("li");
   const input = document.createElement("input");
   input.type = "text";
-  input.value = todo;
+  input.value = todo.description;
   li.append(input);
 
   const saveBtn = document.createElement("button");
@@ -93,10 +105,22 @@ function renderTodoInEditMode(todo) {
 
 function addTodo() {
   const description = addTodoInput.value;
+  if (TODO.some((todo) => todo.description === description)) {
+    dialog.append(span);
+    setTimeout(() => {
+      dialog.removeChild(span);
+    }, 1000);
+    return;
+  }
 
-  TODO.push(description);
-  const todo = renderTodoInReadMode(description);
+  const newTodo = { description, isDone: false };
+
+  TODO.push(newTodo);
+  const todo = renderTodoInReadMode(newTodo);
   todoList.append(todo);
+  
+  speech.text = `Add new TODO with description: ${description}`;
+  speechSynthesis.speak(speech);
 
   addTodoInput.value = "";
   addTodoButton.disabled = true;
@@ -104,10 +128,12 @@ function addTodo() {
 
 function removeTodo(index) {
   TODO[index].isDone = true;
+  const todo = renderTodoInReadMode(TODO[index]);
+  todoList.replaceChild(todo, todoList.childNodes[index]);
 }
 
 function updateTodo(index, description) {
-  TODO[index] = description;
-  const todo = renderTodoInReadMode(description);
+  TODO[index].description = description;
+  const todo = renderTodoInReadMode(TODO[index]);
   todoList.replaceChild(todo, todoList.childNodes[index]);
 }
